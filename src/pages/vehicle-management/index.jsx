@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react"
 import toast from "react-hot-toast";
 import {FaPlus} from 'react-icons/fa'
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 export default function VehicleManagement() {
     //return if no user element in localstorage
     if(localStorage.getItem('user') === null)
@@ -25,7 +25,11 @@ export default function VehicleManagement() {
     return(
         <div className="pt-[100px] flex flex-col items-center backdrop-blur-lg h-[100vh] relative">
             <button className="bg-[#FFFFFF70] hover:bg-white  w-24 h-24 rounded-full flex justify-center items-center absolute bottom-[100px] right-0 m-4 text-primary text-4xl" onClick={() => window.location.href = '/dashboard/vehicle-form'}><FaPlus/></button>
-            <h1 className="text-white pt-2 text-xl font-bold">Vehicle Management</h1>
+            <h1 className="text-white pt-2 text-xl w-3/4 text-center  font-bold relative mb-2">Vehicle Management
+            <Link className="absolute right-0 bg-primary p-2" to={"/dashboard/vehicle-category-management"}>
+                Manage Categories
+            </Link>
+            </h1>
             {
                 vehicles.length === 0 ? <h1 className="text-white text-lg font-bold">No vehicles found</h1> : 
                 <table className="w-3/4  rounded-md mt-4">

@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { FaPlus } from "react-icons/fa";
 
 export default function AccountManagement (){
@@ -50,7 +51,23 @@ export default function AccountManagement (){
                                     <td className="text-center bg-[#FFFFFF70]">{user.email||"null"}</td>
                                     <td className="text-center bg-[#FFFFFF70]">{user.salary||"null"}</td>
                                     <div className="absolute right-[-300] ">
-                                    <button className=" bg-red-600 hover:bg-red-800 text-white w-24 rounded-full" >Delete</button>    
+                                    <button className=" bg-red-600 hover:bg-red-800 text-white w-24 rounded-full" onClick={()=>{
+                                        if(confirm("Are you sure you want to delete this user?")){
+                                            axios.delete(
+                                                "http://localhost:8000/api/common_users?username="+user.username
+                                            ).then((res) => {
+                                                //toast
+                                                toast.success("User deleted successfully.")
+                                                //refresh
+                                                setUsersLoaded(false)
+                                                console.log(res)
+                                            }).catch((err) => {
+                                                console.log(err)
+                                                //toast
+                                                toast.error("An error occurred. Please try again.")
+                                            })                                        
+                                        }
+                                    }}>Delete</button>    
                                     </div>
                                 </tr>
 
