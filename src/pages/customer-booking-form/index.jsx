@@ -217,7 +217,7 @@ export default function CustomerBookingForm() {
                             setLoading(false);
                             setCost(currentCost)
                             toast.error(
-                                "Cost is incorrect please resubmit the form",
+                                "Cost is incorrect please resubmit the form!",
                             )
                             return;
                         }
