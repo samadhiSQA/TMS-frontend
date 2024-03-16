@@ -20,7 +20,7 @@ export default function VehicleCategoryManagement(){
     ), [categoryLoaded];
 
     return(
-        <div className="pt-[100px] flex flex-col items-center backdrop-blur-lg h-[100vh] relative">
+        <div className="pt-[140px] flex flex-col items-center backdrop-blur-lg h-[100vh] relative">
             <h1 className="text-white pt-2 text-xl w-3/4 text-center  font-bold relative mb-2 ">Vehicle Category Management
             <Link className="absolute right-0 bg-primary p-2" to={"/dashboard/vehicle-manager"}>
                 Manage Vehicles
@@ -34,6 +34,7 @@ export default function VehicleCategoryManagement(){
                             <th className="text-black  text-lg font-bold">Category</th>
                             <th className="text-black  text-lg font-bold">Description</th>
                             <th className="text-black  text-lg font-bold">Price</th>
+                            <th className="text-black  text-lg font-bold w-48">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -43,8 +44,8 @@ export default function VehicleCategoryManagement(){
                                     <tr key={index} className="] relative  items-center">
                                         <td className="text-center bg-[#FFFFFF70]">{category.name}</td>
                                         <td className="text-center bg-[#FFFFFF70]">{category.description}</td>
-                                        <td className="text-center bg-[#FFFFFF70]">{category.price}</td>
-                                        <div className="absolute right-[-300] flex flex-row">
+                                        <td className="text-center bg-[#FFFFFF70]">{category.price}</td>                                        
+                                        <td className="flex flex-row w-48">
                                             <button className=" bg-red-600 hover:bg-red-800 text-white w-24 rounded-full mx-2"
                                             onClick={()=>{
                                                 if(confirm("Are you sure you want to delete this category?")){
@@ -69,7 +70,7 @@ export default function VehicleCategoryManagement(){
                                                     navigate("/dashboard/vehicle-category-form",{state: {category: category}})
                                                 }
                                             }>Edit</button>
-                                        </div>
+                                        </td>
                                     </tr>
                                 )
                             })

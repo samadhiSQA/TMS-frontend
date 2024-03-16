@@ -1,0 +1,17 @@
+/* come from left animation */
+@keyframes comeFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.unread-button{
+    display: none;
+}
+.unread-noti:hover .unread-button{
+    display: flex;
+    animation: comeFromLeft 0.5s ease-in-out;
+}

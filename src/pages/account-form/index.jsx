@@ -80,7 +80,7 @@ export default function AccountForm() {
     };
 
     return (
-        <div className="pt-[100px] flex flex-col items-center backdrop-blur-lg h-[100vh] relative">
+        <div className="pt-[140px] flex flex-col items-center backdrop-blur-lg h-[100vh] relative">
             <h1 className="text-white pt-2 text-xl font-bold">Account Form</h1>
             <form className="w-[400px] rounded-md mt-4" onSubmit={handleSubmit}>
                 <div className="flex flex-col">

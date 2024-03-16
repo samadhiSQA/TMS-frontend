@@ -2,10 +2,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { FaPlus } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export default function AccountManagement (){
     const[users, setUsers] = useState([])
     const[usersLoaded , setUsersLoaded] = useState(false)
+    const navigate = useNavigate()
     useEffect(() => {
         if(!usersLoaded){
             axios.get('http://localhost:8000/api/common_users').then((res) => {
@@ -28,7 +30,7 @@ export default function AccountManagement (){
             }
             <table className="w-3/4  rounded-md mt-4">
                 <thead>                    
-                    <tr className="bg-[#FFFFFF70] mb-4">
+                    <tr className="bg-[#FFFFFF70] mb-4" >
                         <th className="text-black  text-lg font-bold">Username</th>
                         <th className="text-black  text-lg font-bold">Name</th>
                         <th className="text-black  text-lg font-bold">Account Type</th>
@@ -42,7 +44,9 @@ export default function AccountManagement (){
                     {
                         users.map((user, index) => {
                             return(
-                                <tr key={index} className="] relative  items-center">
+                                <tr key={index} className="] relative  items-center hover:bg-white cursor-pointer" onClick={()=>{
+                                    navigate('/dashboard/login-activities?username='+user.username)
+                                }}>
                                     <td className="text-center bg-[#FFFFFF70]">{user.username}</td>
                                     <td className="text-center bg-[#FFFFFF70]">{user.name}</td>
                                     <td className="text-center bg-[#FFFFFF70]">{user.account_type}</td>

@@ -24,6 +24,10 @@ export default function LoginPage(){
             localStorage.setItem('user',JSON.stringify(response.data))
             if(user.account_type === 'admin'){
                 navigate('/dashboard/admin')
+            }else if(user.account_type === 'driver'){
+                navigate('/dashboard/driver')
+            }else if(user.account_type === 'customer'){
+                navigate('/dashboard/customer')
             }
         }).catch((error)=>{            
             toast.error(error.response.data.error)
@@ -52,6 +56,12 @@ export default function LoginPage(){
                             }} className="w-full p-2 border border-gray-300 rounded mt-1" />
                         </div>
                         <button className="w-full bg-primary hover:bg-secondary text-white font-bold p-3 rounded">Login</button>
+                        
+                        <div className="mt-4">
+                            <span onClick={()=>{
+                                navigate('/forget')
+                            }} className="text-blue-500">Forget Password?</span>
+                        </div>
                     </form>
                 </div>
             </div>

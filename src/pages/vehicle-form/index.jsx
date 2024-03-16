@@ -192,7 +192,7 @@ export default function VehicleForm() {
     };
 
     return (
-        <div className="w-full pt-[100px] min-h-[100vh] flex justify-center flex-col items-center">
+        <div className="w-full pt-[140px] min-h-[100vh] flex justify-center flex-col items-center">
             {
                 vehicle ? (
                     <h1 className="text-xl font-bold pt-6 text-white">Update vehicle</h1>

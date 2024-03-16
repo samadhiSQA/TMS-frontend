@@ -23,7 +23,7 @@ export default function VehicleManagement() {
             }            )
         }}, [vehiclesLoaded]);
     return(
-        <div className="pt-[100px] flex flex-col items-center backdrop-blur-lg h-[100vh] relative">
+        <div className="pt-[140px] flex flex-col items-center backdrop-blur-lg h-[100vh] relative">
             <button className="bg-[#FFFFFF70] hover:bg-white  w-24 h-24 rounded-full flex justify-center items-center absolute bottom-[100px] right-0 m-4 text-primary text-4xl" onClick={() => window.location.href = '/dashboard/vehicle-form'}><FaPlus/></button>
             <h1 className="text-white pt-2 text-xl w-3/4 text-center  font-bold relative mb-2">Vehicle Management
             <Link className="absolute right-0 bg-primary p-2" to={"/dashboard/vehicle-category-management"}>
@@ -51,18 +51,18 @@ export default function VehicleManagement() {
                         {
                             vehicles.map((vehicle, index) => {
                                 return(
-                                    <tr key={index} className="] relative  items-center">
-                                        <td className="text-center bg-[#FFFFFF70]"><img src={vehicle.image} alt="vehicle" className="w-20 h-20" /></td>
-                                        <td className="text-center bg-[#FFFFFF70]">{vehicle.reg_no}</td>
-                                        <td className="text-center bg-[#FFFFFF70]">{vehicle.category}</td>
-                                        <td className="text-center bg-[#FFFFFF70]">{vehicle.make}</td>
-                                        <td className="text-center bg-[#FFFFFF70]">{vehicle.model}</td>
-                                        <td className="text-center bg-[#FFFFFF70]">{vehicle.milage}</td>                                        
-                                        <td className="text-center max-w-[200px] bg-[#FFFFFF70]">{vehicle.description}</td>
-                                        <td className="text-center bg-[#FFFFFF70]">{vehicle.yom}</td>
-                                        <td className="text-center bg-[#FFFFFF70]">{vehicle.yor}</td>                              
-                                        <td className="bg-[#FFFFFF70]">{vehicle.type}</td>
-                                        <div className="h-full flex flex-col absolute justify-evenly items-center p-2">
+                                    <tr key={index} className="bg-[#FFFFFF70] hover:bg-white cursor-pointer relative  items-center" >
+                                        <td className="text-center "><img src={vehicle.image} alt="vehicle" className="w-20 h-20" /></td>
+                                        <td className="text-center ">{vehicle.reg_no}</td>
+                                        <td className="text-center ">{vehicle.category}</td>
+                                        <td className="text-center ">{vehicle.make}</td>
+                                        <td className="text-center ">{vehicle.model}</td>
+                                        <td className="text-center ">{vehicle.milage}</td>                                        
+                                        <td className="text-center max-w-[200px] ">{vehicle.description}</td>
+                                        <td className="text-center ">{vehicle.yom}</td>
+                                        <td className="text-center ">{vehicle.yor}</td>                              
+                                        <td className="">{vehicle.type}</td>
+                                        <div className="h-full flex flex-col absolute justify-evenly items-center p-2 z-50">
                                             <button className=" bg-red-600 hover:bg-red-800 text-white w-24 rounded-full" 
                                             onClick={()=>{
                                                 //validate
@@ -79,10 +79,13 @@ export default function VehicleManagement() {
                                                     console.log(err);
                                                 })
                                             }}>delete</button>
-                                            <button className=" bg-green-600 hover:bg-green- text-white w-24 rounded-full" 
+                                            <button className=" bg-green-600 hover:bg-green-800 mt-1 text-white w-24 rounded-full" 
                                             onClick={()=>{
                                                 navigate('/dashboard/vehicle-form', {state: {vehicle: vehicle}})
                                             }}>edit</button>
+                                            <button className=" bg-secondary hover:bg-primary mt-1 text-white w-24 rounded-full" onClick={()=>{
+                                                navigate('/dashboard/vehicle-repair-management', {state: {vehicle: vehicle}})
+                                            }}>Repairs</button>
                                         </div>
                                         
                                     </tr>
