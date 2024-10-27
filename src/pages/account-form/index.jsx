@@ -104,7 +104,7 @@ export default function AccountForm() {
                     </select>
                 </div>
                 <div className="flex flex-col">
-                    <label className="text-black text-lg">Account Type</label>
+                    <label className="text-black text-lg">Gender</label>
                     <select className="bg-[#FFFFFF70] rounded-md p-2" value={accountType} onChange={handleGenderChange}>
                         <option value="male">Male</option>
                         <option value="female">Female</option>                        

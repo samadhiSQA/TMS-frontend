@@ -60,7 +60,7 @@ export default function VehicleCategoryForm() {
                     <input value={description} type="text" id="description" placeholder="Description" className="bg-[#FFFFFF70] w-full rounded-md p-2" onChange={(e) => setDescription(e.target.value)} />
                 </div>
                 <div className="flex flex-col w-full mb-4">
-                    <label htmlFor="price" className="text-black text-lg mb-1">Price</label>
+                    <label htmlFor="price" className="text-black text-lg mb-1">Price(1KM)</label>
                     <input value={price} type="number" id="price" placeholder="Price" className="bg-[#FFFFFF70] w-full rounded-md p-2" onChange={(e) => setPrice(e.target.value)} />
                 </div>
                 <button type="submit" className="bg-primary hover:bg-secondary text-white py-2 rounded-md my-2 w-full">Submit</button>

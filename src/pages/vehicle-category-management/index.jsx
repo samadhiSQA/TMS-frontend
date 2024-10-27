@@ -33,7 +33,7 @@ export default function VehicleCategoryManagement(){
                         <tr className="bg-[#FFFFFF70] mb-4">
                             <th className="text-black  text-lg font-bold">Category</th>
                             <th className="text-black  text-lg font-bold">Description</th>
-                            <th className="text-black  text-lg font-bold">Price</th>
+                            <th className="text-black  text-lg font-bold">Price(1KM)</th>
                             <th className="text-black  text-lg font-bold w-48">Actions</th>
                         </tr>
                     </thead>

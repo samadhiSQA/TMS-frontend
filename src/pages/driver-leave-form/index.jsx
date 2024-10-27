@@ -33,12 +33,12 @@ export default function DriverLeaveForm() {
         const selectedDate = new Date(date);
         const diff = Math.abs(selectedDate - today);
         const diffDays = Math.ceil(diff / (1000 * 60 * 60 * 24));
-        if (diffDays < 14) {
-            toast.error(
-                "Leave request must be made at least 14 days in advance",
-            )
-            return;
-        }
+        // if (diffDays < 14) {
+        //     toast.error(
+        //         "Leave request must be made at least 14 days in advance",
+        //     )
+        //     return;
+        // }
         axios.post("http://localhost:8000/api/leave_requests", {
             date,
             description,
